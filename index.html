@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Heart Beats for You</title>
+  <style>
+    body {
+      background-color: #ffe6ea;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .heart {
+      width: 100px;
+      height: 90px;
+      position: relative;
+      margin: 40px auto;
+      transform: scale(1);
+      animation: beat 1s infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 90px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -50px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 50px;
+      top: 0;
+    }
+
+    @keyframes beat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+    }
+
+    .message {
+      font-size: 24px;
+      color: #d00000;
+      margin-top: 20px;
+    }
+
+    .question {
+      font-size: 20px;
+      margin-top: 30px;
+      color: #444;
+    }
+
+    .btn {
+      margin: 10px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background-color: #cccccc;
+      color: #333;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    .response {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heart"></div>
+
+  <div class="message">My heart beats only for you… 💓</div>
+
+  <div class="question">Do you love me?</div>
+
+  <button class="btn yes" onclick="respond('yes')">Yes</button>
+  <button class="btn no" onclick="respond('no')">No</button>
+
+  <div class="response" id="responseBox"></div>
+
+  <script>
+    function respond(answer) {
+      const box = document.getElementById('responseBox');
+      if (answer === 'yes') {
+        box.innerHTML = "Yay! You made my heart the happiest in the universe! 💘";
+      } else {
+        box.innerHTML = "It's okay. I'll keep loving you anyway… 💔";
+      }
+    }
+  </script>
+
+</body>
+</html>
